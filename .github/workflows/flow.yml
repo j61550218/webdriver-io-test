@@ -21,7 +21,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks-outs your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
       # Configura Node.js
@@ -29,6 +29,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          
+      # Instala Allure Command Line
+      - name: Install Allure Command Line
+        run: npm install -g allure-commandline
           
       # Instala dependencias
       - name: Install dependencies
