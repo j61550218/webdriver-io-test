@@ -50,9 +50,9 @@ jobs:
         working-directory: ./shoopingCart
         run: npm run allure:generate
         
-      # Guarda los reportes como artefactos
+      # Guarda los reportes como artefactos (usando la versión v4)
       - name: Archive test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: ./shoopingCart/allure-report
