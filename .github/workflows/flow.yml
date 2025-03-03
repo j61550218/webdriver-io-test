@@ -2,26 +2,26 @@
 
 name: E2E Tests
 
-# Controls when the workflow will run
+# Controla cuándo se ejecutará el workflow
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Activa el workflow en eventos de push o pull request pero solo para la rama "main"
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Permite ejecutar este workflow manualmente desde la pestaña Actions
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Una ejecución de workflow está compuesta por uno o más trabajos que pueden ejecutarse secuencialmente o en paralelo
 jobs:
   e2e-tests:
-    # Changed runner from ubuntu-latest to windows-latest
+    # Cambiado el ejecutor de ubuntu-latest a windows-latest
     runs-on: windows-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # Los pasos representan una secuencia de tareas que se ejecutarán como parte del trabajo
     steps:
-      # Checks-outs your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Hace checkout de tu repositorio bajo $GITHUB_WORKSPACE, para que tu trabajo pueda acceder a él
       - uses: actions/checkout@v4
 
       # Configura Node.js
@@ -61,8 +61,8 @@ jobs:
           name: allure-report
           path: ./shoopingCart/allure-report
           retention-days: 7
-                # Guarda los screenshots como artefactos
-    
+          
+      # Guarda los screenshots como artefactos
       - name: Archive screenshots
         uses: actions/upload-artifact@v4
         with:
