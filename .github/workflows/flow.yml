@@ -44,6 +44,16 @@ jobs:
         working-directory: ./shoopingCart
         run: npm run allure:clean
         
+      # Limpia la carpeta de screenshots
+      - name: Clean screenshots folder
+        run: |
+          if exist "./shoopingCart/screenshots" (
+            del /q /s "./shoopingCart/screenshots\*"
+          ) else (
+            mkdir "./shoopingCart/screenshots"
+          )
+        shell: cmd
+        
       # Ejecuta las pruebas e2e
       - name: Run e2e tests
         working-directory: ./shoopingCart
