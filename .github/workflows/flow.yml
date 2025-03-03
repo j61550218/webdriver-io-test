@@ -54,10 +54,18 @@ jobs:
         working-directory: ./shoopingCart
         run: npm run allure:generate
         
-      # Guarda los reportes como artefactos (usando la versión v4)
+      # Guarda los reportes como artefactos
       - name: Archive test results
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: ./shoopingCart/allure-report
+          retention-days: 7
+                # Guarda los screenshots como artefactos
+    
+      - name: Archive screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: ./shoopingCart/screenshots/**
           retention-days: 7
