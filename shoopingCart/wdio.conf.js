@@ -1,3 +1,5 @@
+const headless = process.argv.includes('--headless');
+
 exports.config = {
     //
     // ====================
@@ -51,9 +53,9 @@ exports.config = {
     //
     capabilities: [{
         // capabilities for local browser web tests
-        browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
+        browserName: 'chrome',   // or 'chromium'
         'goog:chromeOptions': {
-            args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
+            args: headless ? ['--headless', '--disable-gpu'] : []
         }
     }],
 

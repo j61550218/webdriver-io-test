@@ -57,7 +57,7 @@ jobs:
       # Ejecuta las pruebas e2e
       - name: Run e2e tests
         working-directory: ./shoopingCart
-        run: npm run e2e
+        run: npm run e2e:headless
         
       # Genera reportes de Allure
       - name: Generate Allure reports

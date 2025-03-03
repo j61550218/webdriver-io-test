@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "e2e": "wdio run ./wdio.conf.js",
+    "e2e": "wdio run ./wdio.conf.js --spec ./e2e/specs/test.e2e.js",
+    "e2e:headless": "wdio run ./wdio.conf.js --spec ./e2e/specs/test.e2e.js --headless",
     "allure:clean": "rm -rf ./allure-results ./allure-report",
     "allure:generate": "allure generate --clean",
     "allure:open": "allure open ./allure-report"
